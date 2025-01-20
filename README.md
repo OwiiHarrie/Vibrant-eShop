@@ -1,1 +1,1 @@
-# full auth api
+# Vibrant eShop
