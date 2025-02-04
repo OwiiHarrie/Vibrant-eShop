@@ -11,6 +11,7 @@ from rest_framework.generics import (
     UpdateAPIView, DestroyAPIView
 )
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.decorators import permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
@@ -142,6 +143,7 @@ class UserIDView(APIView):
         return Response({'userID': request.user.id}, status=HTTP_200_OK)
 
 
+@permission_classes([AllowAny])
 class ItemListView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ItemSerializer
